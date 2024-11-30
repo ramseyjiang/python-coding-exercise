@@ -4,7 +4,8 @@ import sys
 class Cable:
 
     def _set_length(self, length: int):
-        if not isinstance(length, int) or length < 0 or length > sys.maxsize:
+        # The requirement mentioned the maximum length is 1024, so I change the sys.maxsize to 1024.
+        if not isinstance(length, int) or length < 0 or length > 1024:
             raise ValueError
 
         self.length = length
@@ -18,3 +19,7 @@ class Cable:
             return self.length == other.length and self.name == other.name
 
         return False
+
+    # It is used for output name and length directly during IDE test,
+    def __str__(self):
+        return f"{self.name}-{self.length}"

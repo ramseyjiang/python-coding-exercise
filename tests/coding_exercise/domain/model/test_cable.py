@@ -58,3 +58,14 @@ def test_should_have_name():
     given_name = "coconuts"
 
     assert_that(Cable(101, given_name).name).is_equal_to(given_name)
+
+# Test __str__ method in the cable.py
+def test_cable_str_representation():
+    # Given
+    cable = Cable(10, "coconuts")
+
+    # When
+    result = str(cable)  # Calls the __str__ method of Cable
+
+    # Then
+    assert_that(result).is_equal_to("coconuts-10")
